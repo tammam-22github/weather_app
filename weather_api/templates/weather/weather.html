@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather api</title>
+</head>
+
+<body>
+    <div style="display: grid;justify-content:center">
+        {% if messages %}
+        <div>
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <div style="display:grid;justify-content: center;">
+        <form method="post" style="display: flex;">
+            {% csrf_token %}
+            <div>
+                <label for="city">city : </label>
+                <input type="text" name="city" id="city">
+            </div>
+            &#160;
+            &#160;
+            <div>
+                <button type="submit">click</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <br>
+    {% if city_weather %}
+    <div style="display:grid;justify-content: center; flex-wrap:wrap">
+        <div>{{city_weather.city}}</div>
+        <div>{{city_weather.temperature}} cْ </div>
+        <div>{{city_weather.description}}</div>
+        <div>
+            <img src="http://api.openweathermap.org/img/w/{{city_weather.icon}}.png" loading="lazy" />
+        </div>
+    </div>
+    {% endif %}
+
+
+    {% if forcast_daily %}
+    <h2 style="display:grid;justify-content:center"> forcast daily:</h2>
+    <div style="display:flex; justify-content:center; flex-wrap:wrap">
+
+        {% for day in forcast_daily %}
+        <div>
+            <p>{{day.day}}</p>
+            <p>{{day.temperature}} cْ</p>
+            <p>{{day.description}}</p>
+            <p>
+                <img src="http://api.openweathermap.org/img/w/{{day.icon}}.png" loading="lazy" />
+            </p>
+        </div>
+        &#160;
+        &#160;
+        &#160;
+        &#160;
+        &#160;
+        &#160;
+        {% endfor %}
+    </div>
+    {% endif %}
+</body>
+
+</html>
