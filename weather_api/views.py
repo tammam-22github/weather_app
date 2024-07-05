@@ -44,7 +44,7 @@ class Weather(View):
                 response2=requests.get(url2.format(lat,lon,app_id))
                 content2=response2.json()
                 
-                for day in content2['daily'][1:7]:
+                for day in content2['daily'][:7]:
                     forcast_daliy.append({
                         'day':datetime.datetime.fromtimestamp(day['dt']).strftime('%A'),
                         'temperature':round(day['temp']['day']-273.15,2),
