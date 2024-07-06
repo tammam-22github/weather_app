@@ -16,8 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from weather_api.sitemaps import SiteMap
+from django.contrib.sitemaps.views import sitemap
 
+sitemaps={
+    'sites':SiteMap
+}
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('weather_api.urls',namespace='weather_api'))
+    path('',include('weather_api.urls',namespace='weather_api')),
+    path('sitemap.xml/',sitemap,{'sitemaps':sitemaps},name='django.contrib.sitemaps.views.sitemap'),
 ]

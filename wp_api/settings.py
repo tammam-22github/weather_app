@@ -23,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#d5tfbv&we_+*7#--u$5cbt1!4wgg)-dv-sm--9m6!e#=**(vr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['weather-app-vp0e.onrender.com']
+ALLOWED_HOSTS = ['weather-app-vp0e.onrender.com','127.0.0.1']
 
-
+SITE_ID=1
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'weather_api',
 ]
 
