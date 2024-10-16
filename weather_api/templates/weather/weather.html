@@ -46,28 +46,7 @@
     {% endif %}
 
 
-    {% if forcast_daily %}
-    <h2 style="display:grid;justify-content:center"> forcast daily:</h2>
-    <div style="display:flex; justify-content:center; flex-wrap:wrap">
 
-        {% for day in forcast_daily %}
-        <div>
-            <p>{{day.day}}</p>
-            <p>{{day.temperature}} c</p>
-            <p>{{day.description}}</p>
-            <p>
-                <img src="http://api.openweathermap.org/img/w/{{day.icon}}.png" loading="lazy" />
-            </p>
-        </div>
-        &#160;
-        &#160;
-        &#160;
-        &#160;
-        &#160;
-        &#160;
-        {% endfor %}
-    </div>
-    {% endif %}
 </body>
 
 </html>
